@@ -12,7 +12,7 @@ constraintlayout = "2.2.1"
 dagger = "2.52"
 lifecycle = "2.5.1"
 retrofit = "2.9.0"
-room = "2.4.3"
+room = "2.6.1"
 coroutines = "1.6.4"
 
 [libraries]

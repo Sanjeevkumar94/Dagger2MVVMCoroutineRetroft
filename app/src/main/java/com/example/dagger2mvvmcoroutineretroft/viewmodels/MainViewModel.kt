@@ -1,6 +1,7 @@
 package com.example.dagger2mvvmcoroutineretroft.viewmodels
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,8 +9,9 @@ import com.example.dagger2mvvmcoroutineretroft.models.Product
 import com.example.dagger2mvvmcoroutineretroft.repository.ProductRepository
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(private val repository: ProductRepository) :ViewModel() {
+class MainViewModel @Inject constructor(private val repository: ProductRepository, private val randomize: Randomize) :ViewModel() {
 
     val productsLiveData : LiveData<List<Product>>
         get() = repository.products
@@ -20,6 +22,12 @@ class MainViewModel(private val repository: ProductRepository) :ViewModel() {
             repository.getProducts()
         }
     }
+}
 
 
+class Randomize @Inject constructor(){
+    fun doAction(){
+        Log.d("MYTAG","doAction")
+
+    }
 }
